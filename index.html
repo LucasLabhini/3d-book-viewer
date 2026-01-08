@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>3D Book Viewer</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div id="app"></div>
+
+		<div id="welcomeOverlay" class="overlay overlay-visible">
+			<div class="overlay-card">
+				<h1>3D Book Viewer</h1>
+				<p class="overlay-subtitle">
+					Load any PDF and browse it as a 3D book with animated pages.
+				</p>
+				<p class="overlay-helper">
+					Click the button below to choose a file. You can later load another
+					PDF from the viewer.
+				</p>
+				<button id="welcomeChooseBtn" class="primary-btn">Choose a PDF</button>
+			</div>
+		</div>
+
+		<div id="loadingOverlay" class="overlay overlay-hidden">
+			<div class="overlay-card loading-card">
+				<div class="spinner"></div>
+				<p class="overlay-subtitle">Loading PDF…</p>
+			</div>
+		</div>
+
+		<div id="modeBar" class="mode-bar hidden">
+			<button id="readingModeBtn" class="mode-btn mode-btn-active">
+				Reading mode
+			</button>
+			<button id="freeModeBtn" class="mode-btn">Free mode</button>
+		</div>
+
+		<div id="topBar" class="top-bar hidden">
+			<span
+				id="fileNameDisplay"
+				class="file-name"
+				title="Click to load another PDF"
+			>
+				No PDF loaded
+			</span>
+		</div>
+
+		<div id="bottomHud" class="bottom-hud hidden">
+			<button id="hudPrevBtn" class="hud-arrow" aria-label="Previous pages">
+				&#10094;
+			</button>
+			<input
+				id="hudPageInput"
+				class="hud-page-info"
+				type="number"
+				min="1"
+				step="1"
+				inputmode="numeric"
+			/>
+			<span id="hudTotalPages" class="hud-total-pages"></span>
+			<button id="hudNextBtn" class="hud-arrow" aria-label="Next pages">
+				&#10095;
+			</button>
+		</div>
+
+		<div id="spreadInfo" class="spread-info hidden">
+			<span id="spreadText">– | –</span>
+		</div>
+
+		<input
+			id="pdfFileInput"
+			type="file"
+			accept="application/pdf"
+			style="display: none"
+		/>
+
+		<script type="module" src="./src/main.js"></script>
+	</body>
+</html>
